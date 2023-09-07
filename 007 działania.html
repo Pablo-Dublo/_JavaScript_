@@ -1,0 +1,21 @@
+<script>
+  for (let i = 0; i < 5; i++) {
+    let los1 = Math.floor(Math.random() * 10 + 1);
+    let los2 = Math.floor(Math.random() * 10 + 1);
+
+    while (true) {
+      wynik = los1 * los2;
+      iloczyn = Number(prompt(`Podaj iloczyn liczb: ${los1} * ${los2}`));
+      if (iloczyn === wynik) {
+        alert("Podałeś dobry wynik!");
+        break;
+      } else if (iloczyn > wynik) {
+        alert("Podałeś zły wynik, spróbuj jeszcze raz.");
+      } else if (iloczyn < wynik) {
+        alert("Podałeś zły wynik, spróbuj jeszcze raz.");
+      }
+    }
+  }
+  console.log(`Brawo! ukończyłeś 5 zadań!`);
+  alert(`Brawo! ukończyłeś 5 zadań!`);
+</script>

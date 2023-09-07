@@ -1,0 +1,25 @@
+<script>
+  let litery = new Set();
+  let haslo = prompt("Podaj hasło do gry:").toUpperCase();
+
+  while (true) {
+    let koniec = true;
+    let txt = "";
+    for (z = 0; z < haslo.length; z++) {
+      if (litery.has(haslo[z])) {
+        txt += haslo[z];
+      } else {
+        txt += "*";
+        koniec = false;
+      }
+    }
+    console.log(txt);
+
+    if (koniec == true) {
+      break;
+    }
+    let literka = prompt("Podaj literę.");
+    literka = literka.toUpperCase();
+    litery.add(literka);
+  }
+</script>

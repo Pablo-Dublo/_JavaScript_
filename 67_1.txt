@@ -1,0 +1,90 @@
+document.addEventListener("DOMContentLoaded", function () {
+  document.querySelector("input[type='button']").onclick = function () {
+    let imie = document.querySelector("input[name='imie']").value;
+    document.querySelector("#imie").innerHTML = imie;
+    document.querySelector("#error_imie").innerHTML = "";
+
+    if (imie == "") {
+      document.querySelector("#error_imie").innerHTML = "Błąd!";
+    }
+
+    let nazwisko = document.querySelector("input[name='nazwisko']").value;
+    document.querySelector("#nazwisko").innerHTML = nazwisko;
+    document.querySelector("#error_nazwisko").innerHTML = "";
+
+    if (nazwisko == "") {
+      document.querySelector("##error_nazwisko").innerHTML = "Błąd!";
+    }
+
+    let miasto = document.querySelector("select[name='miasto']").value;
+    document.querySelector("#miasto").innerHTML = miasto;
+    document.querySelector("#error_miasto").innerHTML = "";
+
+    if (miasto == "") {
+      document.querySelector("#error_miasto").innerHTML = "Błąd!";
+    }
+
+    let technologie = document.querySelectorAll("input[type='checkbox']");
+    let tabZnaneTechnologie = [];
+    for (let x of technologie) {
+      if (x.checked) {
+        tabZnaneTechnologie.push(x.value);
+      }
+    }
+    document.querySelector("#technologie").innerHTML = tabZnaneTechnologie;
+
+    // let tabTech = document.querySelectorAll("input[type='checkbox']");
+    // let zaznaczono = false;
+    // for(let x of tabTech){
+    //     if(x.checked == true){
+    //         zaznaczono = true;
+    //     }
+    // }
+
+    if (zaznaczono == false) {
+      document.querySelector("#error_technologia").innerHTML = "Błąd!";
+    } else {
+      document.querySelector("#error_technologia").innerHTML = "";
+    }
+
+    let stanowisko = document.querySelectorAll("input[type='radio']");
+    let wybraneStanowisko;
+    for (let x of stanowisko) {
+      if (x.checked) {
+        wybraneStanowisko = x.value;
+      }
+    }
+    document.querySelector("#stanowisko").innerHTML = wybraneStanowisko;
+
+    let textarea = document.querySelector("textarea").value;
+    document.querySelector("#uwagi").innerHTML = textarea;
+
+    // function Sprawdz(form) {
+    //   if (document.getElementById("input[name=imie1]").value.length < 3) {
+    //     alert(`Błąd, wpisz poprawne imię, minimum 3 znaki`);
+    //     form.imie1.focus();
+    //     return false;
+    //   }
+    //   if (document.getElementById("name=nazwisko").value.length < 2) {
+    //     alert(`Błąd, wpisz poprawne nazwisko, minimum 2 znaki`);
+    //     form.nazwisko.focus();
+    //     return false;
+    //   }
+    //   if (document.getElementById("select[name='miasto']").value) {
+    //     alert(`Błąd, wybierz miasto`);
+    //     form.miasto.focus();
+    //     return false;
+    //   }
+    //   if (document.getElementById("error_technologia").value) {
+    //     alert(`Błąd, wybierz technologie`);
+    //     form.error_technologia.focus();
+    //     return false;
+    //   }
+    //   if (document.getElementById("error_stanowisko").value) {
+    //     alert(`Błąd, wybierz stanowisko`);
+    //     form.error_stanowisko.focus();
+    //     return false;
+    //   }
+    // }
+  };
+});

@@ -1,0 +1,107 @@
+<script>
+  class Pracownik {
+    constructor(imie, nazwisko, kontrakt, pensja) {
+      this.imie = imie;
+      this.nazwisko = nazwisko;
+      this.kontrakt = kontrakt;
+      this.pensja = pensja;
+    }
+  }
+
+  class PracownikController {
+    constructor() {
+      this.listaPracownikow = [];
+    }
+
+    dodaj(imie, nazwisko, kontrakt, pensja) {
+      let nowyPracownik = new Pracownik(imie, nazwisko, kontrakt, pensja);
+      this.listaPracownikow.push(nowyPracownik);
+      console.log("Pracownik został dodany.");
+    }
+
+    pokaz() {
+      for (let p = 0; p < this.listaPracownikow.length; p++) {
+        console.log(
+          `
+          Imię: ${this.listaPracownikow[p].imie} Nazwisko: ${this.listaPracownikow[p].nazwisko}, 
+          Rodzaj kontraktu: ${this.listaPracownikow[p].kontrakt}, 
+          Pensja: ${this.listaPracownikow[p].pensja}`
+        );
+      }
+    }
+
+    usun(nazwisko) {
+      this.listaPracownikow.forEach((i, p) => {
+        if (nazwisko == i.nazwisko) {
+          this.listaPracownikow.splice(p, 1);
+        }
+      });
+    }
+
+    zmien(nazwisko, noweImie, noweNazwisko, nowyKontrakt, nowaPensja) {
+      this.listaPracownikow.forEach((i, p) => {
+        if (nazwisko == i.nazwisko) {
+          i.imie = noweImie;
+          i.nazwisko = noweNazwisko;
+          i.kontrakt = nowyKontrakt;
+          i.pensja = nowaPensja;
+        }
+      });
+    }
+    sprawdzPracownika(nazwisko) {
+      for (let v of this.listaPracownikow) {
+        if (v.nazwisko == nazwisko) {
+          return true;
+        }
+      }
+      return false;
+    }
+  }
+
+  class Firma extends PracownikController {
+    constructor(nazwaFirmy) {
+      super();
+      this.nazwaFirmy = nazwaFirmy;
+      this.menu();
+    }
+
+    menu() {
+      while (true) {
+        let menu = Number(
+          prompt(
+            `Witaj w firmie ${this.nazwaFirmy} \n\n1-dodaj, 2-pokaz, 3-usun, 4-zmien, 5-koniec`
+          )
+        );
+
+        if (menu == 1) {
+          let imie = prompt("Podaj imie");
+          let nazwisko = prompt("Podaj nazwisko");
+          let kontrakt = prompt("Podaj kontrakt");
+          let pensja = prompt("Podaj pensja");
+          this.dodaj(imie, nazwisko, kontrakt, pensja);
+        } else if (menu == 2) {
+          this.pokaz();
+        } else if (menu == 3) {
+          let nazwisko = prompt("Podaj nazwisko do usunięcia Pracownika.");
+          this.usun(nazwisko);
+        } else if (menu == 4) {
+          let noweImie = prompt("Podaj imie");
+          let noweNazwisko = prompt("Podaj nazwisko");
+          let nowyKontrakt = prompt("Podaj kontrakt");
+          let nowaPensja = prompt("Podaj pensja");
+          this.zmien(
+            nazwisko,
+            noweImie,
+            noweNazwisko,
+            nowyKontrakt,
+            nowaPensja
+          );
+        } else if (menu == 5) {
+          break;
+        }
+      }
+    }
+  }
+
+  let firma = new Firma("Dubland Company !!");
+</script>

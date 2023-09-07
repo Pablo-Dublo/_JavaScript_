@@ -1,0 +1,24 @@
+<script>
+  let cyfry = new Map([
+    [0, "zero"],
+    [1, "jeden"],
+    [2, "dwa"],
+    [3, "trzy"],
+    [4, "cztery"],
+    [5, "pieć"],
+    [6, "sześć"],
+    [7, "siedem"],
+    [8, "osiem"],
+    [9, "dziewięć"],
+  ]);
+  while (true) {
+    let liczba = prompt(`Podaj liczbę by przedstawić ją słownie.`);
+    for (let numer of liczba) {
+      let cyfra = Number(numer);
+      console.log(`${cyfry.get(cyfra)}`);
+      alert(`${cyfry.get(cyfra)}`);
+    }
+    // console.log(cyfry);
+    console.log(liczba);
+  }
+</script>

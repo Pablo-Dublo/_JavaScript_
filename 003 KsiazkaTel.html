@@ -1,0 +1,63 @@
+<script>
+  // Imie, Nazwisko, telefon
+  // dane w postaci tablicy
+  // menu  1-dodaj, 2- pokaz, 3- usun, 4-zmien, 5-koniec.
+  // dodatkowa opcja zmien,która ma umożliwić zmianę kontaktu w pełnym zakresie tj. imie, nazwisko telefon.
+  // W tej opcji zadajemy 4 pytania:
+  // - o nazwisko dotychczasowe (by znaleźć tą osobę) - nazwiska się nie powtarzają
+  // - o nowe imie, nowe nazwisko, nowy telefon
+
+  let dane = [];
+
+  while (true) {
+    let menu = Number(
+      prompt(`1- Dodaj, 2- Pokaż, 3- Usuń, 4- Zmień, 5- Koniec.`)
+    );
+
+    if (menu == 1) {
+      let imie = prompt("Podaj imię:");
+      let nazwisko = prompt("Podaj nazwisko:");
+      let telefon = prompt("Podaj numer telefonu:");
+      let kontakt = [imie, nazwisko, telefon];
+      dane.push(kontakt);
+      console.log("Dane zostały dodane.");
+      console.log(kontakt);
+    } else if (menu == 2) {
+      for (let kontakt in dane) {
+        console.log(`Imię: ${dane[kontakt][0]}`);
+        console.log(`Nazwisko: ${dane[kontakt][1]}`);
+        console.log(`Telefon: ${dane[kontakt][2]}`);
+      }
+    } else if (menu == 3) {
+      let nazwisko = prompt(
+        "Podaj nazwkisko kontaktu do całkowitego usunięcia: "
+      );
+      for (let kontakt in dane) {
+        if (dane[kontakt][1] == nazwisko) {
+          dane.splice(kontakt, 1);
+        }
+      }
+    } else if (menu == 4) {
+      let nazwisko = prompt("Podaj nazwisko kontaktu który chcesz edytować: ");
+      for (let kontakt in dane) {
+        if (dane[kontakt][1] == nazwisko) {
+          dane.splice(kontakt, 1);
+          {
+            let imie = prompt("Podaj imię:");
+            let nazwisko = prompt("Podaj nazwisko:");
+            let telefon = prompt("Podaj numer telefonu:");
+            let kontakt = [imie, nazwisko, telefon];
+            dane.push(kontakt);
+            console.log("Dane zostały zmienione.");
+          }
+        }
+      }
+    } else if (menu == 5) {
+      console.log("Program został zakończony.");
+      break;
+    } else {
+      console.log("Użyłeś niepoprawnej opcji menu.");
+      alert("Użyłeś niepoprawnej opcji menu. Spróbuj ponownie.");
+    }
+  }
+</script>

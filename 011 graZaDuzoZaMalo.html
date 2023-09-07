@@ -1,0 +1,39 @@
+<script>
+  var los = Math.floor(Math.random() * 100 + 1);
+  var ilosc = 0;
+  var liczba;
+  var Tak;
+  var Nie;
+  var koniec = false;
+
+  while (true) {
+    liczba = Number(prompt("Podaj liczbe od 1 do 100:"));
+
+    if (liczba > los) {
+      console.log("Podałeś za dużą liczbę.");
+      ilosc = ilosc + 1;
+    } else if (liczba < los) {
+      console.log("Podałeś za małą liczbę.");
+      ilosc = ilosc + 1;
+    } else if (liczba == los) {
+      console.log("Gratulacje!");
+      koniec = true;
+    }
+
+    if (ilosc == 5) {
+      console.log("Przegarana!");
+      koniec = true;
+    }
+
+    if (koniec == true) {
+      var wybor = prompt("Czy chcesz zagrać jeszcze raz ? : T/N");
+      if (wybor == "T") {
+        ilosc = 0;
+        los = Math.floor(Math.random() * 100 + 1);
+        koniec = false;
+      } else {
+        break;
+      }
+    }
+  }
+</script>

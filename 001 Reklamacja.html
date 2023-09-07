@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="pl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="ZadanieReklamacja.css" type="text/css">
+  </head>
+  <body>
+    <form action="#" method="post" subject=reklamacja></form>
+    <h1 id="treść">Dopisanie zgłoszenia reklamującego</h1>
+    <div class="Reklamujący">
+
+      <div class="Reklamacja" style="width:950px; margin: 0 auto;">
+        <h2>Reklamujący</h2>
+
+        <div class="plec" style=" margin-left: 315px;">
+          Pani<input name="płeć" type="radio" value="Pani" />
+          Pan<input name="płeć" type="radio" value="Pan" />
+        </div>
+      <div style="margin-left:200px;">
+      
+        <div style="padding-bottom: 10px;">
+          <span style="display:inline-block; width:100px; text-align:right;">Imię</span>
+          <div style="display:inline-block; margin-left: 10px;">
+            <input type="text" name="Imię" size="40" autofocus required />
+          </div>
+        </div>
+        <div style="padding-bottom: 10px;">
+          <span style="display:inline-block; width:100px; text-align:right;">Nazwisko</span>
+          <div style="display:inline-block; margin-left: 10px;">
+            <input type="text" name="Nazwisko" size="40" autofocus required />
+          </div>
+        </div>
+        <div style="padding-bottom: 10px;">
+          <span style="display:inline-block; width:100px; text-align:right;">Ulica</span>
+          <div style="display:inline-block; margin-left: 10px;">
+            <input type="text" name="Ulica" size="40" autofocus required />
+          </div>
+        </div>
+        <div style="padding-bottom: 10px;">
+          <span style="display:inline-block; width:100px; text-align:right;">Kod pocztowy</span>
+          <div style="display:inline-block; margin-left: 10px;">
+            <input type="text" name="Kod pocztowy" size="20" autofocus required />
+          </div>
+        </div>
+        <div style="padding-bottom: 10px;">
+          <span style="display:inline-block; width:100px; text-align:right;">Miejscowośc</span>
+          <div style="display:inline-block; margin-left: 10px;">
+            <input type="text" name="Miejscowośc" size="40" autofocus required />
+          </div>
+        </div>
+        <div style="padding-bottom: 10px;">
+          <span style="display:inline-block; width:100px; text-align:right;">Nr telefonu</span>
+          <div style="display:inline-block; margin-left: 10px;">
+            <input type="text" name="Nr telefonu" size="40" autofocus required />
+          </div>
+        </div>        
+        <div style="padding-bottom: 10px;">
+          <span style="display:inline-block; width:100px; text-align:right;">Adres email</span>
+          <div style="display:inline-block; margin-left: 10px;">
+            <input type="text" name="Adres email" size="40" autofocus required />
+          </div>
+        </div>        
+        <div style="padding-bottom: 10px;">
+          <span>Sposób powiadomienia</span>
+            <input type="checkbox" name="tel" value="Telefon/sms" />Telefon/SMS</br>
+            <input type="checkbox" name="email" value="email" style="display:inline-block; margin-left: 174px;"/>e-mail</div>
+        </div>
+      </div>
+      </div>
+<div class="podukt" style="width:950px; margin: 0 auto;">
+  <h2>Reklamowany produkt</h2>
+  <div style="margin-left:200px; padding-bottom: 10px;">
+    <div style="padding-bottom: 10px;">
+      <span style="display:inline-block; width:100px; text-align:right;">Asortyment</span>
+      <div style="display:inline-block; margin-left: 10px;">
+            <select style="width: 350px">
+              <option value=" " > </option>
+              <option value="Telefon">Telefon</option>
+              <option value="Laptop">Laptop</option>
+              <option value="TV">TV</option>
+              <option value="PC">PC</option>
+            </select>
+      </div>      
+    </div> 
+    <div style="padding-bottom: 10px;">
+      <span>Numer seryjny</span>
+      <div style="display:inline-block; margin-left: 7px;">
+      <input type="text" name="Numer seryjny" size="40" autofocus required />
+      </div>  
+    </div>      
+    <div style="padding-bottom: 10px;">
+      <span style="display:inline-block; width:100px; text-align:right;">Uwagi</span>
+      <div style="display:inline-block; margin-left: 10px;">
+        <input type="text" name="Uwagi" size="60" autofocus required />
+      </div>
+      </div>
+    </div>
+</div>
+<div class="zgłoszenie" style="width:950px; margin: 0 auto;">
+
+  
+  <h2>Dane zgłoszenia</h2>
+      <div style="padding-bottom: 10px; margin-left:90px;>
+        <span style="display:inline-bloc; width:100px; text-align:right;">Numer dokumentu zgłoszenia</span>
+        <div style="display:inline-block; margin-left: 10px;">
+          <input type="text" name="Numer dokumentu zgłoszenia" size="40" autofocus required />
+        </div>
+        </div>
+        <div style="padding-bottom: 10px; margin-left:202px;">
+          <span style="display:inline-block; width:100px; text-align:right;">Data zakupu</span>
+          <div style="display:inline-block; margin-left: 10px;">
+            <input type="text" name="Data zakupu" size="30" autofocus required />
+          </div>
+          </div>
+          <div style="padding-bottom: 10px; margin-left:150px;">
+            <span style="display:inline-bloc; width:100px; text-align:right;">Data powstania wady</span>
+            <div style="display:inline-block; margin-left: 10px;">
+              <input type="text" name="Data powstania wady" size="30" autofocus required />
+            </div>
+            </div>
+            <div style="padding-bottom: 10px; margin-left: 152px;">
+              <span style=" width:100px; text-align:right;">Przyczyna reklamacji</span>
+              <div style="display:inline-block; margin-left: 10px;">
+                <input type="text" name="Przyczyna reklamacji" size="60" autofocus required />
+              </div>
+            </div>   
+            <div style="padding-bottom: 10px; margin-left:203px;">
+              <span style="display:inline-block; width:100px; text-align:right;">Opis wady</span>
+              <div style="display:inline-block; margin-left: 10px;">
+                
+                <textarea type="text" name="Opis wady" style="width: 432px" size="60" autofocus required /></textarea>
+              </div>
+            </div>
+            <div style="padding-bottom: 10px; margin-left: 135px;">
+                <span style="width:100px; text-align:right;">Żądanie reklamującego</span>
+                <div style="display:inline-block; margin-left: 10px;">
+                      <select style="width: 350px">
+                        <option value=" " size="40"> </option>
+                        <option value="123" size="40">123</option>
+                        <option value="ABC" size="40">ABC</option>
+                        <option value="tiruriru" size="40">tiruriru</option>
+                        <option value="ayymakarena" size="40">ayymakarena</option>
+                      </select>
+                </div>    
+    </div>
+  </div>
+</body>
+</html>

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="pl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <form action="#" method="get">
+      <h1>Formularz rezerwacji biletu lotniczego</h1>
+      <p>
+        Twoje imię:<br />
+        <input type="text" name="imię" placeholder="Wpisz swoje imię..." autofocus required/>
+      </p>
+
+      <p>
+        Twoje nazwisko:<br />
+        <input type="text" name="nazwisko" placeholder="Wpisz swoje nazwisko..." required/>
+      </p>
+
+      <p>
+        wylotu:<br />
+        <input type="date" data-wylotu type="color" placeholder="Wprowadź datę wylotu..." required pattern="[0-9]{2}-[0-9]{3}"/>
+       
+      </p>
+
+      <p>
+        Wylot z:
+        <select name="wylot">
+          <option value="Wrocław">Wrocław</option>
+          <option value="Warszawa">Warszawa</option>
+          <option value="Katowice">Katowice</option>
+          <option value="Szczecin">Szczecin</option>
+        </select>
+      </p>
+
+      <p>     
+        Przylot do :
+        <select name="przylot">  
+          <option value="Wrocław">Wrocław</option>
+          <option value="Warszawa">Warszawa</option>
+          <option value="Katowice">Katowice</option>
+          <option value="Szczecin">Szczecin</option>
+        </select>
+      </p>
+
+      <p>
+        Klasa VIP:<br />
+        <input type="radio" name="Klasa VIP" value="Tak" />Tak <br />
+        <input type="radio" name="Klasa VIP" value="Nie" />Nie
+      </p>
+
+      <p>
+        Posiłek:<br />
+        <input type="checkbox" name="Posiłek1" value="Przystawka" />Przystawka <br />
+        <input type="checkbox" name="Posiłek2" value="Obiad" />Obiad <br />
+        <input type="checkbox" name="Posiłek3" value="Deser" />Deser <br />
+      </p>
+
+      <p>
+        Dodatkowe uwagi:
+        <textarea name="uwagi"></textarea>
+      </p>
+
+      <p>
+        <input type="submit" value="Zarezerwuj" />
+
+        <input type="reset" value="Anuluj" />
+      </p>
+    </body>

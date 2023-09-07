@@ -1,0 +1,44 @@
+<script>
+  let dane = [];
+
+  while (true) {
+    let menu = Number(prompt("1 - Dodaj, 2 - Wyświetl, 3 - Usuń, 4 - Koniec"));
+
+    if (menu == 1) {
+      //prompty: imie, nazwisko, telefon
+      let imie = prompt("Podaj imię:");
+      let nazwisko = prompt("Podaj Nazwisko:");
+      let telefon = prompt("Podaj telefon:");
+
+      let kontakt = [imie, nazwisko, telefon];
+      dane.push(kontakt);
+      console.log("Dane zostały pomyślnie dodane.");
+    } else if (menu == 2) {
+      for (let x of dane) {
+        console.log(`Imię: ${x[0]}`);
+        console.log(`Nazwisko: ${x[1]}`);
+        console.log(`Telefon: ${x[2]}`);
+      }
+    } else if (menu == 3) {
+      let nazwisko = prompt("Podaj dane do usunięcia:");
+      let znaleziono = false;
+      for (let kontakt in dane) {
+        if (dane[kontakt][1] === nazwisko) {
+          dane.splice(kontakt, 1);
+          console.log("Dane zostały pozytywnie usunięte.");
+          znaleziono = true;
+        }
+        if (znaleziono == false) {
+          console.log("Podana osoba nie zostałą znaleziona.");
+        }
+      }
+
+      //prompty: nazwisko
+    } else if (menu == 4) {
+      console.log("Koniec Programu");
+      break;
+    } else {
+      console.log("Nierozponana opcja menu");
+    }
+  }
+</script>

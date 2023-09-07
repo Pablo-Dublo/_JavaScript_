@@ -1,0 +1,89 @@
+<script>
+  class Kursant {
+    constructor(imie, nazwisko, telefon) {
+      this.imie = imie;
+      this.nazwisko = nazwisko;
+      this.telefon = telefon;
+    }
+  }
+
+  class Kurs {
+    constructor(nazwa, tryb) {
+      this.nazwa = nazwa;
+      this.tryb = tryb;
+      this.listaKursantow = [];
+    }
+  }
+
+  let listaKursow = [];
+
+  while (true) {
+    let menu = Number(
+      prompt(
+        "1-dodaj kurs, 2-pokaz kursy, 3-dodaj kursanta do kursu, 4-wyswietl kurs wraz z kursantami, 5-usun kurs, 6-usun kursanta z kursu, 7-koniec"
+      )
+    );
+
+    if (menu == 1) {
+      let nazwa = prompt(`Dodaj kurs`);
+      let tryb = prompt(`Dodaj tryb`);
+      let kursy = new Kurs(nazwa, tryb);
+      listaKursow.push(kursy);
+    }
+    if (menu == 2) {
+      for (let kurs of listaKursow) {
+        console.log(`nazwa: ${kurs.nazwa}`);
+        console.log(`tryb: ${kurs.tryb}`);
+      }
+    }
+    if (menu == 3) {
+      let a = prompt(`Podaj kurs`);
+      listaKursow.forEach((v, i) => {
+        if (v.nazwa == a) {
+          let imie = prompt(`Dodaj imie`);
+          let nazwisko = prompt(`Dodaj nazwisko`);
+          let telefon = Number(prompt(`Dodaj telefon`));
+          let nowykursant = new Kursant(imie, nazwisko, telefon);
+          v.listaKursantow.push(nowykursant);
+          console.log("Dodano kursanta");
+        }
+      });
+    }
+    if (menu == 4) {
+      let nazwaKursu = prompt("Podaj nazwę kursu.");
+      listaKursow.forEach((kurs) => {
+        if (kurs.nazwa == nazwaKursu) {
+          kurs.listaKursantow.forEach((v, i) => {
+            console.log(v.imie, v.nazwisko, v.telefon);
+          });
+        }
+      });
+    }
+    if (menu == 5) {
+      let nazwaKursu2 = prompt("Podaj nazwę kursu do całkowitego usunięcia.");
+
+      listaKursow.forEach((kurs, i) => {
+        if (kurs.nazwa == nazwaKursu2) {
+          listaKursow.splice(i, 1);
+        }
+      });
+    }
+    if (menu == 6) {
+      let kursUsuniecia = prompt("Podaj kurs");
+      let nazwisko = prompt("Podaj nazwisko uczestnika do usunięcia");
+      listaKursow.forEach((kurs) => {
+        if (kurs.nazwa == kursUsuniecia) {
+          let KursanciTab = kurs.listaKursantow;
+
+          KursanciTab.forEach((v, i) => {
+            if (v.nazwisko == nazwisko) {
+              KursanciTab.splice(i, 1);
+            }
+          });
+        }
+      });
+    } else if (menu == 7) {
+      break;
+    }
+  }
+</script>

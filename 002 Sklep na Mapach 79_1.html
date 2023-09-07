@@ -1,0 +1,94 @@
+<script>
+  let sklep = new Map();
+  sklep.set("sok", 1.5);
+  sklep.set("woda", 2.5);
+  sklep.set("cola", 3.5);
+
+  class Koszyk {
+    constructor() {
+      this.zakupy = new Map();
+    }
+
+    dodajProdukt(produkt, ilosc) {
+      if (this.zakupy.has(produkt)) {
+        let iloscDotychczasowa = this.zakupy.get(produkt);
+        let nowaIlosc = iloscDotychczasowa + ilosc;
+        this.zakupy.set(produkt, nowaIlosc);
+        // izi mode ->      this.zakupy.set(produkt, this.zakupy.get(produkt) + ilosc);
+      } else {
+        this.zakupy.set(produkt, ilosc);
+      }
+      //jezeli w koszyku: sok - 5, woda - 2
+      //dokupuje jeszcze 2 soki
+      // sok - 7, woda - 2
+    }
+
+    usunProdukt(produkt, ilosc) {
+      if (this.zakupy.has(produkt)) {
+        if (ilosc < this.zakupy.get(produkt)) {
+          let iloscUsuniecia = this.zakupy.get(produkt);
+          let kolejnaIlosc = iloscUsuniecia - ilosc;
+          this.zakupy.set(produkt, kolejnaIlosc);
+        } else if (ilosc == this.zakupy.get(produkt)) {
+          this.zakupy.delete(produkt);
+        } else if (ilosc > this.zakupy.get(produkt)) {
+          alert(`Błąd. Podałeś złą ilość do usunięcia.`);
+        }
+      }
+
+      //3 przypadki
+      //jezeli w koszyku jest wiecej produktow niz to ile chcemy usunac
+      //sok - 5, a chcemy usunac 2 => sok - 3
+      //jezeli w koszyku jest tyle samo produktow - ile chcemy usunac
+      //sok - 5, a chcemy usunac 5 => usuwamy produkt z koszyka (nie trzymamy stanow 0)
+      //jezeli w koszyku jest mniej produktow - ile chcemy usunac
+      //sok - 5, a chcemy usunac 12 => komunikat niewystarczajaca ilosc p[roduktu w koszykui
+    }
+  }
+
+  let koszyk = new Koszyk();
+
+  while (true) {
+    let menu = Number(
+      prompt(
+        "1-Dodaj produkt, 2-Wyswietl zawartosc koszyka, 3-Usun produkt, 4-Kasa/Koniec"
+      )
+    );
+
+    if (menu == 1) {
+      let nazwa = prompt(`Podaj nazwę produktu; 
+-"woda", 
+-"sok", 
+-"cola".`);
+      if (sklep.has(nazwa)) {
+        let ile = prompt(`Podaj ilość.`);
+        koszyk.dodajProdukt(nazwa, ile);
+      }
+    } else if (menu == 2) {
+      koszyk.zakupy.forEach((i, p) => {
+        console.log(`Produkt: ${p} Ilość: ${i}`);
+      });
+    } else if (menu == 3) {
+      let nazwa = prompt(`Który z produktów chcesz usunąć?`);
+      let ilosc;
+
+      if (sklep.has(nazwa)) {
+        ilosc = Number(prompt(`Ile chcesz usunąć: '${nazwa}'?`));
+      }
+      koszyk.usunProdukt(nazwa, ilosc);
+    } else if (menu == 4) {
+      let suma = 0;
+      koszyk.zakupy.forEach((ilosc, produkt) => {
+        console.log(
+          `Produkt: ${produkt}. Ilość: ${ilosc}. Cena: ${sklep.get(
+            produkt
+          )}. Wartość: ${ilosc * sklep.get(produkt)}`
+        );
+        suma += ilosc * sklep.get(produkt);
+      });
+
+      console.log(`Razem do zapłaty: ${suma}`);
+      break;
+    }
+  }
+</script>

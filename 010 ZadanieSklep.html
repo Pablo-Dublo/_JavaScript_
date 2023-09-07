@@ -1,0 +1,45 @@
+<script>
+  let sklep = new Map();
+  sklep.set("sok", 3);
+  sklep.set("woda", 2);
+  sklep.set("cola", 4);
+  sklep.set("piwo", 5);
+
+  let koszyk = [];
+  let suma = 0;
+  while (true) {
+    let menu = Number(
+      prompt(
+        "1 - Dodaj do koszyka, 2 - Pokaz zawartosc koszyka, 3 - Kasa/koniec"
+      )
+    );
+
+    if (menu == 1) {
+      let zakupy = prompt(`Podaj nazwę produktu`);
+      if (sklep.has(zakupy)) {
+        koszyk.push(zakupy);
+      }
+
+      //pytania: podaj nazwe produktu (dodajemy produkt do koszyka tylko wtedy kiedy jest w sklepie)
+    } else if (menu == 2) {
+      for (let x of koszyk) {
+        console.log(x);
+      }
+      //Prezentacja danych:
+      //Produkt: ....
+      //Produkt: ....
+    } else if (menu == 3) {
+      for (let x of koszyk) {
+        suma = suma + sklep.get(x);
+        console.log(x, sklep.get(x));
+      }
+      console.log(`Razem do zapłaty:${suma} złotych`);
+      //PARAGON:
+      //Produkt: .... Cena: ...
+
+      //RAZEM DO ZAPLATY: ..... PLN
+
+      break;
+    }
+  }
+</script>
